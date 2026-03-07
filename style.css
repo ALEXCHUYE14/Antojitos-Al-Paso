@@ -511,6 +511,25 @@
   .cart-total span { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
   .cart-total strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--amarillo); }
 
+  .continue-shopping-btn {
+    width: 100%;
+    background: transparent;
+    color: var(--amarillo);
+    border: 2px solid var(--amarillo);
+    padding: 10px;
+    border-radius: 6px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+  }
+  .continue-shopping-btn:hover {
+    background: var(--amarillo);
+    color: var(--negro);
+  }
+
   .checkout-btn {
     width: 100%;
     background: var(--rojo);
@@ -826,13 +845,19 @@
       width: 100vw; 
       height: 100vh; 
       top: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-header {
+      flex-shrink: 0;
     }
     .cart-items {
       flex: 1;
       overflow-y: auto;
       padding: 12px;
-      max-height: calc(100vh - 180px);
-      min-height: 200px;
+      max-height: none;
+      min-height: 0;
+      height: auto;
     }
     .cart-footer {
       flex-shrink: 0;

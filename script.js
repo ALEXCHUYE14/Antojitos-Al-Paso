@@ -78,6 +78,13 @@
     if (s.classList.contains('open')) closeCart(); else openCart();
   }
 
+  // ---------- CONTINUE SHOPPING ----------
+  function continueShopping() {
+    closeCart();
+    // Scroll to menu section
+    document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+  }
+
   // ---------- CHECKOUT ----------
   function openCheckout() {
     closeCart();
