@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antojitos al Paso | Catacaos</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo">Antojitos<span>Al Paso</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#info">Nosotros</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="tel:982936262" class="nav-delivery">📞 Delivery</a>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="fire-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🔥 Restaurante en Catacaos</div>
+    <h1>Antojitos<span>al paso</span></h1>
+    <p class="hero-sub">Super Delicioso Fast Food & Pollo a la Brasa</p>
+    <div class="hero-horario">
+      <p>⏰ <strong>Martes a Domingo</strong> &nbsp;|&nbsp; <strong>6:30 PM – 12:00 PM</strong></p>
+      <p>📍 Jr. Zepita # 349 – Catacaos &nbsp;|&nbsp; 📞 982 936 262</p>
+    </div>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">🍗 Ver Carta</a>
+      <a href="https://wa.me/51982936262" target="_blank" class="btn-outline">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENÚ -->
+<section id="menu">
+  <div class="section-header">
+    <p class="section-label">🍽️ Lo que tenemos para ti</p>
+    <h2 class="section-title">Nuestra Carta</h2>
+    <p class="section-desc">Escoge tu plato favorito y agrégalo al carrito</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="showTab('brasa')">🔥 Pollo a la Brasa</button>
+    <button class="tab-btn" onclick="showTab('fastfood')">🍔 Fast Food</button>
+  </div>
+
+  <!-- POLLO A LA BRASA -->
+  <div class="panel active" id="brasa">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="card-icon"><img src="img/pollo entero a la brasa.jpg" alt="Pollo Entero a la Brasa" loading="lazy"></div>
+        <div class="badge-hot">⭐ Popular</div>
+        <div class="card-body">
+          <div class="card-name">Pollo Entero</div>
+          <div class="card-desc">Pollo a la brasa entero, dorado y jugoso. Incluye papas y ensalada.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 54.00</div>
+            <button class="add-btn" onclick="addToCart('Pollo Entero', 54)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="img/pollo entero a la brasa.jpg" alt="Medio Pollo a la Brasa" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">½ de Pollo</div>
+          <div class="card-desc">Media porción de pollo a la brasa con papas y ensalada fresca.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 28.00</div>
+            <button class="add-btn" onclick="addToCart('½ de Pollo', 28)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="img/pollo entero a la brasa.jpg" alt="Cuarto de Pollo a la Brasa" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">¼ de Pollo</div>
+          <div class="card-desc">Cuarto de pollo a la brasa, acompañado de papas y ensalada.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 15.00</div>
+            <button class="add-btn" onclick="addToCart('¼ de Pollo', 15)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="img/pollo entero a la brasa.jpg" alt="Octavo de Pollo a la Brasa" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">⅛ de Pollo</div>
+          <div class="card-desc">Un octavo de pollo a la brasa, ideal para un antojo rápido.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 10.00</div>
+            <button class="add-btn" onclick="addToCart('⅛ de Pollo', 10)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop" alt="Mostrito" loading="lazy"></div>
+        <div class="badge-hot">🌶️ Especial</div>
+        <div class="card-body">
+          <div class="card-name">Mostrito</div>
+          <div class="card-desc">Especialidad de la casa. Porciones selectas de pollo en su punto.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 11.00</div>
+            <button class="add-btn" onclick="addToCart('Mostrito', 11)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAST FOOD -->
+  <div class="panel" id="fastfood">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="card-icon"><img src="img/pollo broaster.jpg" alt="Pollo Broaster" loading="lazy"></div>
+        <div class="badge-hot">🔥 Hot</div>
+        <div class="card-body">
+          <div class="card-name">Pollo Broaster</div>
+          <div class="card-desc">Pollo crujiente estilo broaster, dorado por fuera y jugoso por dentro.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 10.00</div>
+            <button class="add-btn" onclick="addToCart('Pollo Broaster', 10)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop" alt="Pollo a la Plancha" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">Pollo a la Plancha</div>
+          <div class="card-desc">Pollo a la plancha, sazonado y preparado al momento.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 10.00</div>
+            <button class="add-btn" onclick="addToCart('Pollo a la Plancha', 10)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop" alt="Mollejitas" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">Mollejitas</div>
+          <div class="card-desc">Mollejas tiernas y bien sazonadas, una delicia irresistible.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 10.00</div>
+            <button class="add-btn" onclick="addToCart('Mollejitas', 10)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=400&h=300&fit=crop" alt="Alitas Picantes" loading="lazy"></div>
+        <div class="badge-hot">🔥 Picante</div>
+        <div class="card-body">
+          <div class="card-name">Alitas Picantes</div>
+          <div class="card-desc">Alitas de pollo bañadas en salsa picante, adictivamente deliciosas.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 16.00</div>
+            <button class="add-btn" onclick="addToCart('Alitas Picantes', 16)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Hamburguesa" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">Hamburguesas</div>
+          <div class="card-desc">Hamburguesa jugosa con lechuga, tomate, mayonesa y queso derretido.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 6.50</div>
+            <button class="add-btn" onclick="addToCart('Hamburguesa', 6.50)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=300&fit=crop" alt="Shalchipapa" loading="lazy"></div>
+        <div class="badge-hot">⭐ Fav</div>
+        <div class="card-body">
+          <div class="card-name">Shalchipapa</div>
+          <div class="card-desc">Salchicha con papas fritas y salsas, el snack perfecto del momento.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 7.50</div>
+            <button class="add-btn" onclick="addToCart('Shalchipapa', 7.50)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop" alt="Aguadito" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">Aguadito</div>
+          <div class="card-desc">Caldo tradicional de pollo con arroz, culantro y especias.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 4.50</div>
+            <button class="add-btn" onclick="addToCart('Aguadito', 4.50)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" alt="Salchichaufa" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">Salchichaufa</div>
+          <div class="card-desc">Arroz chaufa con salchicha, un clásico fusión peruano-oriental.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 9.00</div>
+            <button class="add-btn" onclick="addToCart('Salchichaufa', 9)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop" alt="Pollo Plancha a lo Pobre" loading="lazy"></div>
+        <div class="badge-hot">💪 Contundente</div>
+        <div class="card-body">
+          <div class="card-name">Pollo Plancha A Lo Pobre</div>
+          <div class="card-desc">Pollo a la plancha con arroz, papa frita, huevo frito y plátano.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 13.00</div>
+            <button class="add-btn" onclick="addToCart('Pollo Plancha A Lo Pobre', 13)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="card-icon"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop" alt="Cebada Maracuyá" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-name">Cebada – Maracuyá</div>
+          <div class="card-desc">Bebida refrescante de cebada con sabor a maracuyá, hecha en casa.</div>
+          <div class="card-footer">
+            <div class="card-price"><small>S/.</small> 6.50</div>
+            <button class="add-btn" onclick="addToCart('Cebada - Maracuyá', 6.50)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="section-header">
+    <p class="section-label">📍 Encuéntranos</p>
+    <h2 class="section-title">Dónde Estamos</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="info-icon">📍</span>
+      <h4>Dirección</h4>
+      <p>Jr. Zepita # 349<br><strong>Catacaos, Piura</strong></p>
+    </div>
+    <div class="info-card">
+      <span class="info-icon">⏰</span>
+      <h4>Horario</h4>
+      <p><strong>Martes a Domingo</strong><br>6:00 PM – 11:00 PM<br><small style="color:var(--rojo)">Lunes: Cerrado</small></p>
+    </div>
+    <div class="info-card">
+      <span class="info-icon">🛵</span>
+      <h4>Delivery</h4>
+      <p>Pedidos a domicilio<br><strong>📞 982 936 262</strong><br>WhatsApp disponible</p>
+    </div>
+    <div class="info-card">
+      <span class="info-icon">💳</span>
+      <h4>Métodos de Pago</h4>
+      <p>Efectivo · Yape · Plin<br>Transferencia Bancaria<br><strong>¡Fácil y rápido!</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Antojitos<span>Al Paso</span></div>
+  <p>Jr. Zepita # 349 – Catacaos, Piura</p>
+  <p>📞 982 936 262 &nbsp;|&nbsp; ⏰ Mar–Dom: 6PM – 11PM</p>
+  <div class="social-links">
+    <a href="https://wa.me/51982936262" target="_blank" class="social-link" title="WhatsApp">💬</a>
+    <a href="tel:982936262" class="social-link" title="Llamar">📞</a>
+    <a href="https://maps.google.com/?q=Jr+Zepita+349+Catacaos" target="_blank" class="social-link" title="Ubicación">📍</a>
+  </div>
+  <p style="margin-top:20px; font-size:0.75rem;">© 2026 Antojitos al Paso · Todos los derechos reservados</p>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- CARRITO SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Mi Pedido</h3>
+    <button class="close-cart" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div style="font-size:3rem">🛒</div>
+      <p>Tu carrito está vacío.<br>Agrega platos del menú.</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Total a pagar:</span>
+      <strong id="cartTotal">S/. 0.00</strong>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">HACER PEDIDO →</button>
+  </div>
+</div>
+
+<!-- CART FAB -->
+<button class="cart-fab" onclick="toggleCart()" id="cartFab">
+  🛒
+  <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-bg" onclick="closeCheckout()"></div>
+  <div class="modal-box" id="checkoutBox">
+
+    <!-- Formulario -->
+    <div id="checkoutForm">
+      <h2>Confirmar Pedido</h2>
+      <p>Completa tus datos para finalizar tu pedido</p>
+      <button class="close-modal" onclick="closeCheckout()">✕</button>
+
+      <div class="delivery-toggle">
+        <div class="toggle-opt selected" id="togDelivery" onclick="selectMode('delivery')">
+          <div class="icon">🛵</div>
+          <div class="label">Delivery</div>
+        </div>
+        <div class="toggle-opt" id="togRecojo" onclick="selectMode('recojo')">
+          <div class="icon">🏪</div>
+          <div class="label">Recojo en local</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" id="clientName" placeholder="Tu nombre...">
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" id="clientPhone" placeholder="Ej: 987 654 321">
+      </div>
+      <div id="deliveryFields">
+        <div class="form-group">
+          <label>Dirección de entrega</label>
+          <input type="text" id="clientAddress" placeholder="Calle, número, referencia...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Notas adicionales (opcional)</label>
+        <textarea id="clientNotes" placeholder="Ej: sin cebolla, extra salsa..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Método de pago</label>
+        <div class="pay-methods">
+          <div class="pay-card selected" id="pay-efectivo" onclick="selectPay('efectivo')">
+            <span class="pay-icon">💵</span>
+            <div class="pay-name">Efectivo</div>
+          </div>
+          <div class="pay-card" id="pay-yape" onclick="selectPay('yape')">
+            <span class="pay-icon">📱</span>
+            <div class="pay-name">Yape</div>
+          </div>
+          <div class="pay-card" id="pay-plin" onclick="selectPay('plin')">
+            <span class="pay-icon">💜</span>
+            <div class="pay-name">Plin</div>
+          </div>
+          <div class="pay-card" id="pay-transferencia" onclick="selectPay('transferencia')">
+            <span class="pay-icon">🏦</span>
+            <div class="pay-name">Transferencia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Yape/Plin -->
+      <div class="qr-section" id="qrSection">
+        <div class="qr-placeholder">
+          📱<br>QR de pago<br>Yape / Plin<br><strong>982 936 262</strong>
+        </div>
+        <p>Escanea el código QR o transfiere al número<br><strong style="color:var(--amarillo)">982 936 262</strong></p>
+      </div>
+
+      <!-- Transferencia -->
+      <div class="qr-section" id="bankSection">
+        <p style="text-align:left; line-height:1.8; font-size:0.85rem;">
+          🏦 <strong style="color:var(--amarillo)">Datos de transferencia:</strong><br>
+          Banco: <strong>BCP / Interbank</strong><br>
+          Número de cuenta: <strong>192-XXXXXXXX-0-XX</strong><br>
+          CCI: <strong>00219200XXXXXXXX0XXX</strong><br>
+          A nombre de: <strong>Antojitos al Paso</strong>
+        </p>
+      </div>
+
+      <div class="order-summary" id="orderSummaryBox"></div>
+
+      <button class="send-btn" onclick="sendOrder()">
+        <span>💬</span> Enviar por WhatsApp
+      </button>
+    </div>
+
+    <!-- Éxito -->
+    <div class="success-screen" id="successScreen">
+      <div class="check">✅</div>
+      <h3>¡Pedido Enviado!</h3>
+      <p style="margin-top:10px;">Tu pedido fue enviado por WhatsApp.<br>Nos pondremos en contacto contigo pronto.<br><br><strong style="color:var(--amarillo)">📞 982 936 262</strong></p>
+      <button onclick="closeCheckout()" style="margin-top:24px; background:var(--rojo); color:var(--blanco); border:none; padding:12px 28px; border-radius:6px; font-weight:700; cursor:pointer; font-family:'Raleway',sans-serif; font-size:0.9rem;">Cerrar</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
