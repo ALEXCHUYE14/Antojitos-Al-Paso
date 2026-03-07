@@ -46,6 +46,7 @@
           <span class="qty-num">${item.qty}</span>
           <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
         </div>
+        <button class="remove-btn" onclick="removeFromCart(${idx})" title="Eliminar plato">🗑️</button>
       </div>
     `).join('');
   }
@@ -56,14 +57,21 @@
     updateCartUI();
   }
 
+  function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    updateCartUI();
+  }
+
   // ---------- CART SIDEBAR ----------
   function openCart() {
     document.getElementById('cartSidebar').classList.add('open');
     document.getElementById('overlay').classList.add('show');
+    document.body.classList.add('no-scroll');
   }
   function closeCart() {
     document.getElementById('cartSidebar').classList.remove('open');
     document.getElementById('overlay').classList.remove('show');
+    document.body.classList.remove('no-scroll');
   }
   function toggleCart() {
     const s = document.getElementById('cartSidebar');
@@ -77,9 +85,11 @@
     document.getElementById('checkoutModal').classList.add('open');
     document.getElementById('checkoutForm').style.display = 'block';
     document.getElementById('successScreen').classList.remove('show');
+    document.body.classList.add('no-scroll');
   }
   function closeCheckout() {
     document.getElementById('checkoutModal').classList.remove('open');
+    document.body.classList.remove('no-scroll');
   }
 
   function buildOrderSummary() {
@@ -158,3 +168,8 @@
   updateCartUI();
   selectMode('delivery');
   selectPay('efectivo');
+
+  // ---------- OVERLAY CLICK ----------
+  document.getElementById('overlay').addEventListener('click', function() {
+    closeCart();
+  });
