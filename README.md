@@ -114,7 +114,7 @@ Antojitos-Al-Paso/
 
 ## 🌐 Demo en Vivo
 
-**[Ver Sitio Web](https://antojitos-al-paso.netlify.app)** *(configurar en Netlify o similar)*
+**[Ver Sitio Web](https://antojitosalpaso.netlify.app/)** *(configurar en Netlify o similar)*
 
 ---
 
