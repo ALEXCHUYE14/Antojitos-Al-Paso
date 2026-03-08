@@ -6,14 +6,39 @@
 
   const DELIVERY_FEE = 3.00; // Costo de delivery
 
+  // Toast notification function
+  function showToast(message) {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // Cart animation
+  function animateCart() {
+    const cartBtn = document.getElementById('cartFab');
+    if (cartBtn) {
+      cartBtn.classList.add('animate');
+      setTimeout(() => cartBtn.classList.remove('animate'), 400);
+    }
+  }
+
   function addToCart(name, price) {
     const existing = cart.find(i => i.name === name);
     if (existing) {
       existing.qty++;
+      showToast(`➕ +1 ${name}`);
     } else {
       cart.push({ name, price, qty: 1 });
+      showToast(`✅ ${name} agregado`);
     }
     updateCartUI();
+    animateCart();
     openCart();
   }
 
@@ -186,6 +211,36 @@
   // ---------- NAV MOBILE ----------
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // ---------- SCROLL EFFECTS ----------
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Initialize AOS if available
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
   }
 
   // ---------- INIT ----------
