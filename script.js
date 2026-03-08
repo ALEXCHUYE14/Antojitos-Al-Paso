@@ -4,6 +4,8 @@
   let deliveryMode = 'delivery';
   let payMethod = 'efectivo';
 
+  const DELIVERY_FEE = 3.00; // Costo de delivery
+
   function addToCart(name, price) {
     const existing = cart.find(i => i.name === name);
     if (existing) {
@@ -100,13 +102,21 @@
   }
 
   function buildOrderSummary() {
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const deliveryFee = deliveryMode === 'delivery' ? DELIVERY_FEE : 0;
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const total = subtotal + deliveryFee;
     const lines = cart.map(i => `<div class="order-line"><span>${i.name} x${i.qty}</span><span>S/. ${(i.price*i.qty).toFixed(2)}</span></div>`).join('');
-    document.getElementById('orderSummaryBox').innerHTML = `
-      <div class="order-summary-title">📋 Resumen del pedido</div>
-      ${lines}
-      <div class="order-line total"><span>TOTAL</span><span>S/. ${total.toFixed(2)}</span></div>
-    `;
+    
+    let summaryHtml = `<div class="order-summary-title">📋 Resumen del pedido</div>`;
+    summaryHtml += lines;
+    
+    if (deliveryMode === 'delivery') {
+      summaryHtml += `<div class="order-line delivery-fee"><span>🚚 Delivery</span><span>S/. ${DELIVERY_FEE.toFixed(2)}</span></div>`;
+    }
+    
+    summaryHtml += `<div class="order-line total"><span>TOTAL</span><span>S/. ${total.toFixed(2)}</span></div>`;
+    
+    document.getElementById('orderSummaryBox').innerHTML = summaryHtml;
   }
 
   function selectMode(mode) {
@@ -135,18 +145,25 @@
     if (deliveryMode === 'delivery' && !address) { alert('Por favor ingresa tu dirección de entrega 📍'); return; }
     if (cart.length === 0) { alert('Tu carrito está vacío'); return; }
 
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const deliveryFee = deliveryMode === 'delivery' ? DELIVERY_FEE : 0;
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const total = subtotal + deliveryFee;
     const items = cart.map(i => `  • ${i.name} x${i.qty} = S/. ${(i.price*i.qty).toFixed(2)}`).join('\n');
     const modeText = deliveryMode === 'delivery' ? `Delivery a: ${address}` : 'Recojo en local (Jr. Zepita #349)';
     const payText = { efectivo:'Efectivo', yape:'Yape', plin:'Plin', transferencia:'Transferencia Bancaria' }[payMethod];
 
-    const msg = `🍗 *NUEVO PEDIDO – Antojitos al Paso*\n\n` +
+    let msg = `🍗 *NUEVO PEDIDO – Antojitos al Paso*\n\n` +
       `👤 *Cliente:* ${name}\n` +
       `📞 *Teléfono:* ${phone}\n` +
       `🛵 *Modalidad:* ${modeText}\n` +
       `💳 *Pago:* ${payText}\n\n` +
-      `📋 *Pedido:*\n${items}\n\n` +
-      `💰 *TOTAL: S/. ${total.toFixed(2)}*` +
+      `📋 *Pedido:*\n${items}\n\n`;
+    
+    if (deliveryMode === 'delivery') {
+      msg += `🚚 *Delivery:* S/. ${DELIVERY_FEE.toFixed(2)}\n`;
+    }
+    
+    msg += `💰 *TOTAL: S/. ${total.toFixed(2)}*` +
       (notes ? `\n\n📝 *Notas:* ${notes}` : '') +
       `\n\n⏰ Pedido realizado vía web`;
 

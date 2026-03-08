@@ -778,7 +778,8 @@
     transition: all 0.3s;
   }
   .info-card:hover { border-color: rgba(255,214,10,0.3); transform: translateY(-4px); }
-  .info-icon { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+  .info-icon { font-size: 2.5rem; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; }
+.info-icon svg { width: 32px; height: 32px; }
   .info-card h4 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
@@ -820,6 +821,7 @@
     font-size: 1.2rem;
     transition: all 0.3s;
   }
+  .social-link svg { width: 20px; height: 20px; }
   .social-link:hover { background: var(--rojo); transform: translateY(-3px); }
 
   /* SUCCESS SCREEN */
