@@ -136,7 +136,7 @@
     summaryHtml += lines;
     
     if (deliveryMode === 'delivery') {
-      summaryHtml += `<div class="order-line delivery-fee"><span>🚚 Delivery</span><span>S/. ${DELIVERY_FEE.toFixed(2)}</span></div>`;
+      summaryHtml += `<div class="order-line delivery-fee"><span>🛵 Delivery</span><span>S/. ${DELIVERY_FEE.toFixed(2)}</span></div>`;
     }
     
     summaryHtml += `<div class="order-line total"><span>TOTAL</span><span>S/. ${total.toFixed(2)}</span></div>`;
